@@ -1,0 +1,10 @@
+apply in multiple program.
+
+restricted apply if admission doesnt start.
+
+restricted apply if hsc passing year exceeded 3 years.
+
+admin can generate admit card by one click for all applied student for individual program.
+
+automatically change archive status of application of previous session when new admission date published.
+

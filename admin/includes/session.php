@@ -1,0 +1,18 @@
+<?php
+	require_once('db.php');
+	ob_start();
+	session_start();
+	if(!isset($_SESSION['username'])){
+		header("location:../index.php");
+	}
+$admin_dashboard=0;
+$programs=0;
+$applied_application=0;
+$all_students=0;
+$generate_admit=0;
+$upload_excel=0;
+$notice=0;
+$message=0;
+$display_contents=0;
+$terms_and_conditions=0;
+?>
