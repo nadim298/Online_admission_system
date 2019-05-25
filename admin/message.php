@@ -5,6 +5,41 @@ $message=+1;
 include 'includes/head.php';
 	
 ?>
+<?php
+if(isset($_POST['send'])){
+    require '../PHPMailer/PHPMailerAutoload.php';
+$mail = new PHPMailer;
+
+//$mail->SMTPDebug = 3;                               // Enable verbose debug output
+
+$mail->isSMTP();                                      // Set mailer to use SMTP
+$mail->Host = 'smtp.gmail.com';  // Specify main and backup SMTP servers
+$mail->SMTPAuth = true;                               // Enable SMTP authentication
+$mail->Username = '298nads@gmail.com';                 // SMTP username
+$mail->Password = '@@gravity298';                           // SMTP password
+$mail->SMTPSecure = 'tls';                            // Enable TLS encryption, `ssl` also accepted
+$mail->Port = 587;                                    // TCP port to connect to
+
+$mail->setFrom($_POST['recipient_email']);
+$mail->addAddress($_POST['recipient_email']);     // Add a recipient              // Name is optional
+$mail->addReplyTo($_POST['recipient_email']);
+    // Optional name
+$mail->isHTML(true);                                  // Set email format to HTML
+
+$mail->Subject = 'Reply From Admin';
+$mail->Body    = $_POST['message'];
+    
+if(!$mail->send()) {
+    echo 'Message could not be sent.';
+    echo 'Mailer Error: ' . $mail->ErrorInfo;
+} else {
+    echo '<script language="javascript">';
+                        echo 'alert("Message has been sent")';
+                        echo '</script>';
+}
+}
+
+?>
 
 <body>
 
@@ -70,7 +105,7 @@ $run=mysqli_query($conn,$sql);
                                             <td class="center"><?php echo htmlentities($date);?></td>
                                             <td class="center"><?php echo htmlentities($message);?></td>
                                             
-                                             <td><input type="button" value="Open" id="<?php echo $id;?>" class="btn btn-info btn-xs open" /></td>
+                                             <td><input type="button"  value="Open" id="<?php echo $id;?>" class="btn btn-info btn-xs open" /></td>
                                             
                                             
                                         </tr>
@@ -91,11 +126,11 @@ $run=mysqli_query($conn,$sql);
 <?php include 'includes/bottom-scripts.php';?>
 
 
- <div id="msg_details_Modal" class="modal fade">  
+ <div data-backdrop="static" data-keyboard="false" id="msg_details_Modal" class="modal fade">  
       <div class="modal-dialog">  
            <div class="modal-content">  
-                <div class="modal-header">  
-                     <button type="button" class="close" data-dismiss="modal">&times;</button>  
+               <form method="post" >
+                <div class="modal-header">    
                      <h4 class="modal-title">Message</h4>  
                 </div>  
                 <div class="modal-body">  
@@ -103,24 +138,25 @@ $run=mysqli_query($conn,$sql);
                             </label><br><span id="date"></span><br><br>
                             <label class="control-label">Message: 
                             </label><br><span id="message"></span><br><br>
-                     <form method="post" id="insert_form">  
+                       
                           <div class="form-group">
                             <label for="recipient-nameq" class="control-label">Recipient:
                             </label>
-                            <input type="text" class="form-control" id="recipient_email">
+                            <input type="text" class="form-control" name="recipient_email" id="recipient_email">
                             </div>
                             <div class="form-group">
                                 <label for="message-text" class="control-label" required>Reply:
                                 </label>
-                                <textarea class="form-control" id="" rows="5">
+                                <textarea class="form-control" name="message" id="" rows="5">
                                 </textarea>
                             </div>
-                     </form>  
+                       
                 </div>  
                 <div class="modal-footer">  
-                     <a href="#" class="btn btn-success" >Send</a>  
-                     <a href="message.php" class="btn btn-danger" >Close</a>  
+                     <input class="btn btn-success pull-left" type="submit" name="send" value="Send">  
+                     <a href="message.php" class="btn btn-danger" >Cancel</a>  
                 </div>  
+                </form>
            </div>  
       </div>  
  </div> 
@@ -140,7 +176,7 @@ $run=mysqli_query($conn,$sql);
                      $('#date').html(data.date); 
                      $('#recipient_email').val(data.sender_email); 
                      $('#message').html(data.message); 
-                     $('#msg_details_Modal').modal('show');  
+                     $('#msg_details_Modal').modal('show');
                 }  
            });  
       });  
@@ -176,4 +212,6 @@ $run=mysqli_query($conn,$sql);
 <script src="js/datatables/custom-datatables.js">
 </script>
 
+<script>
 
+</script>
