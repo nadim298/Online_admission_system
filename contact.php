@@ -126,6 +126,3 @@ echo '</script>';
 </body>
 
 </html>
-<script src="bootstrap/js/bootstrap.min.js"></script>
-    <script src="js/plugins.js"></script>
-    <script src="js/custom.js"></script>

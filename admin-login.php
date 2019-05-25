@@ -60,7 +60,7 @@
 </div>
 
 <div class="form-block">
-<input type="password" placeholder="Password" name="password"> <i class="icon-eye2"></i>
+<input type="password" id="password" placeholder="Password" name="password"> <i onclick="myFunction()" class="icon-eye2"></i>
 </div>
 <input type="submit" name="submit" value="Login">
 </div>
@@ -70,3 +70,13 @@
 </body>
 
 </html>
+<script>
+function myFunction() {
+  var x = document.getElementById("password");
+  if (x.type === "password") {
+    x.type = "text";
+  } else {
+    x.type = "password";
+  }
+}
+</script>

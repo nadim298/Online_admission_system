@@ -37,7 +37,7 @@ if(isset($_POST['send'])){
    <?php include 'includes/header.php'; ?>    
     <div class="container">
         <div class="row">
-            <div class="col-md-8">
+            <div class="col-md-8 ">
                 <div class="main-slideshow">
                     <div class="flexslider">
                         <ul class="slides">
@@ -53,7 +53,7 @@ if(isset($_POST['send'])){
                                 
                                 ?>
                             <li>
-                                <img style="height:392px; width:738px;" src="media/slides/<?php echo htmlentities($slide_image);?>" />
+                                <img src="media/slides/<?php echo htmlentities($slide_image);?>" />
                                 <div class="slider-caption">
                                     <h2 style="color:white;"><?php echo htmlentities($slide_title);?></h2>
                                 </div>
@@ -89,7 +89,7 @@ if(isset($_POST['send'])){
                                     }
                                     ?>
                                 </label>
-                                <input type="text" id="sender_name" class="form-control" name="sender_name">
+                                <input style="color:black;" type="text" id="sender_name" class="form-control" name="sender_name">
                             </div> <!-- /.full-row -->
 
                             <div class="full-row">
@@ -125,8 +125,8 @@ if(isset($_POST['send'])){
                 <div class="row">
                     <div class="col-md-12">
                         <div class="widget-item">
-                            <h2 class="welcome-text">Welcome to Stamford University, Bangladesh</h2>
-                            <p><strong>Stamford University, Bangladesh was founded in the city of Dhaka in 1994 and then it as known as Stamford College Group, Bangladesh. It was upgraded as a private university with the permission of the Government of Bangladesh in 2002 and emerged as Stamford University, Bangladesh. Stamford College Group, Bangladesh began its journey in 1994 as a full-fledged educational institution with a promise of providing an international standard education. Stamford University, Bangladesh belongs to globally recognized Stamford University & College Group that has 160 campuses now in Asia, Europe, Africa, Australia and America. This institution has been established with a view to making significant contribution to the development of education in the country. Since its beginning this institution has been continuing its educational programs in Bangladesh with great success and fame. More than 12,000 students have successfully completed their degrees from this university and most of them are now engaged in different national and multinational organizations. More than 12,000 students are studying under undergraduate and graduate programs.</p>
+                            <h2 class="welcome-text">Welcome Online University Admission System</h2>
+                            <p><strong>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</strong></p>
                         </div> <!-- /.widget-item -->
                     </div> <!-- /.col-md-12 -->
                 </div> <!-- /.row -->

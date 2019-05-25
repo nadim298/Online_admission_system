@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 14, 2019 at 12:06 PM
+-- Generation Time: May 15, 2019 at 05:44 AM
 -- Server version: 10.1.28-MariaDB
 -- PHP Version: 7.1.11
 
@@ -87,7 +87,7 @@ CREATE TABLE `admit_card` (
 --
 
 INSERT INTO `admit_card` (`id`, `registration_id`, `student_hsc_roll`, `program_id`, `exam_date`, `exam_time`, `session_name`, `session_year`, `venue`) VALUES
-(9, 1, 232233, 7, '2019-05-15', '14:30:00', 'Summer', 2019, 'stamford');
+(10, 2, 232233, 13, '2019-05-20', '14:30:00', 'Summer', 2019, 'stamford');
 
 -- --------------------------------------------------------
 
@@ -112,7 +112,7 @@ CREATE TABLE `applied_application` (
 --
 
 INSERT INTO `applied_application` (`registration_id`, `student_hsc_roll`, `program_id`, `registration_date`, `session_name`, `session_year`, `amount`, `payment_status`, `archive`) VALUES
-(1, 232233, '7,13', '2019-05-14 09:42:11', 'Summer', 2019, 1100, 'paid', 0);
+(3, 232233, '7,8,9', '2019-05-14 11:02:20', 'Summer', 2019, 2200, 'pending', 0);
 
 -- --------------------------------------------------------
 
@@ -163,7 +163,7 @@ INSERT INTO `message` (`id`, `sender_name`, `sender_email`, `message`, `date`, `
 (11, 'Nadim', '404nadim@gmail.com', 'testing 2..', '2019-05-03 17:28:14', 1),
 (12, 'Nasrullah Al Nadim', '404@gmail.com', 'test', '2019-05-05 08:54:23', 1),
 (13, 'Nasrullah Al Nadim', '404@gmail.com', 'feedback', '2019-05-09 06:42:27', 1),
-(14, 'Nasrullah Al Nadim', '404@gmail.com', 'Test', '2019-05-14 09:49:27', 0);
+(14, 'Nasrullah Al Nadim', '404@gmail.com', 'Test', '2019-05-14 09:49:27', 1);
 
 -- --------------------------------------------------------
 
@@ -205,12 +205,12 @@ CREATE TABLE `programs` (
 --
 
 INSERT INTO `programs` (`program_id`, `program_name`, `required_group`, `required_gpa`, `registration_fee`) VALUES
-(7, 'BBA', 'Science,Business Studies', 3, 600),
+(7, 'Architechture', 'Science', 3, 600),
 (8, 'EEE', 'Science', 3, 600),
 (9, 'CIVIL', 'Science', 3, 1000),
 (13, 'English', 'Science,Business Studies', 2.5, 500),
 (14, 'Pharmacy', 'Science', 3, 500),
-(15, 'Architechture', 'Science', 4, 1000);
+(15, 'Journalism', 'Science', 4, 1000);
 
 -- --------------------------------------------------------
 
@@ -235,10 +235,10 @@ CREATE TABLE `result` (
 --
 
 INSERT INTO `result` (`id`, `hsc_roll`, `session`, `english`, `math`, `gk`, `total`, `position`, `status`) VALUES
-(53, 443322, 'Spring 2019', 7, 6, 5, 18, 1, 1),
-(54, 232233, 'Spring 2019', 4, 5, 7, 16, 2, 1),
-(55, 332211, 'Spring 2019', 5, 6, 5, 11, 0, 0),
-(56, 776655, 'Spring 2019', 4, 3, 4, 10, 0, 0);
+(57, 443322, 'Summer 2019', 7, 6, 5, 18, 1, 1),
+(58, 232233, 'Summer 2019', 4, 5, 7, 16, 2, 1),
+(59, 332211, 'Summer 2019', 5, 6, 5, 11, 0, 0),
+(60, 776655, 'Summer 2019', 4, 3, 4, 10, 0, 0);
 
 -- --------------------------------------------------------
 
@@ -288,7 +288,7 @@ CREATE TABLE `student_academic_info` (
 
 INSERT INTO `student_academic_info` (`ssc_roll`, `ssc_registration`, `ssc_group`, `ssc_board`, `ssc_passing_year`, `ssc_gpa`, `hsc_roll`, `hsc_registration`, `hsc_group`, `hsc_board`, `hsc_passing_year`, `hsc_gpa`) VALUES
 (101436, 489392, 'Science', 'Dhaka', 2011, 5, 112142, 666719, 'Science', 'Dhaka', 2013, 3.7),
-(121212, 485263, 'Science', 'Dhaka', 2016, 5, 232233, 475263, 'Business Studies', 'Dhaka', 2018, 5),
+(121212, 485263, 'Science', 'Dhaka', 2016, 5, 232233, 475263, 'Science', 'Dhaka', 2018, 5),
 (123456, 489392, 'Science', 'Dhaka', 2019, 5, 654321, 666719, 'Business Studies', 'Dhaka', 2019, 3.7),
 (556677, 489392, 'Science', 'Dhaka', 2019, 5, 776655, 666719, 'Science', 'Dhaka', 2019, 2.7);
 
@@ -319,7 +319,8 @@ INSERT INTO `student_login_info` (`ssc_roll`, `hsc_roll`, `first_name`, `last_na
 (121212, 232233, 'Mr', 'abc', 'a@a.com', 'IMG_20170523_172919.jpg', '415cf04a3d4dac485d4f935baf6ce99e', '2019-01-31 18:00:00', 1),
 (123456, 654321, 'Mr', 'Nadim', 'n@n.com', 'IMG_5682.jpg', '415cf04a3d4dac485d4f935baf6ce99e', '2019-05-13 10:44:08', 1),
 (223344, 443322, 'MD', 'Xyz', 'xyz@g.com', 'IMG_5682.jpg', '415cf04a3d4dac485d4f935baf6ce99e', '2019-05-13 10:25:53', 1),
-(556677, 776655, 'MD', 'Babu', 'b@b.com', '', '415cf04a3d4dac485d4f935baf6ce99e', '2019-05-13 12:33:11', 1);
+(556677, 776655, 'MD', 'Babu', 'b@b.com', '', '415cf04a3d4dac485d4f935baf6ce99e', '2019-05-13 12:33:11', 1),
+(778899, 998877, 'Test', 'Name', 't@t.com', '', '4d813d28f0aaaa4e9da0fb6e55293607', '2019-05-14 15:59:26', 1);
 
 -- --------------------------------------------------------
 
@@ -562,13 +563,13 @@ ALTER TABLE `admission_notices`
 -- AUTO_INCREMENT for table `admit_card`
 --
 ALTER TABLE `admit_card`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT for table `applied_application`
 --
 ALTER TABLE `applied_application`
-  MODIFY `registration_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `registration_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `message`
@@ -592,7 +593,7 @@ ALTER TABLE `programs`
 -- AUTO_INCREMENT for table `result`
 --
 ALTER TABLE `result`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=57;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=61;
 
 --
 -- AUTO_INCREMENT for table `slides`
